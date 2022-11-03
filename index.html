@@ -6,25 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="/script.js" defer></script>
+    <script src="script2.js" defer></script>
     <link rel="stylesheet" href="/style.css">
 
 </head>
 <body>
+    <form>
+        <label for="title">Title</label><br>
+        <input type="text"><br>
+        <label for="author">Author</label><br>
+        <input type="text"><br>
+        <label for="pages">Page number</label><br>
+        <input type="number"><br>
+        <label for="read">Read yet?</label><br>
+        <input type="text"><br><br>
+        <input type="submit" value="S U B M I T">
+    </form>
+
     <table>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Pages</th>
-            <th>Read yet?</th>
-        </tr>
-        <tr>
-            <td>The Hobbit</td>
-            <td>JRR Tolkien</td>
-            <td>295 pages</td>
-            <td>Not read yet</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Read yet?</th>
+            </tr>
+        </thead>
+        <tbody id="book-list">
+            <tr>
+                <td>The Hobbit</td>
+                <td>JRR Tolkien</td>
+                <td>295 pages</td>
+                <td>Not read yet</td>
+                <td><button>X</button></td>
+            </tr>
+        </tbody>
     </table>
+
+    <p id="stuff">
+
+    </p>
     
 </body>
 </html>
