@@ -34,7 +34,9 @@ class UI {
             <td>${book.author}</td>
             <td>${book.pages}</td>
             <td>${book.read}</td>
-            <td><button class="delete"><a href="#">X</a></button></td> 
+            <td><button class="delete"><a href="#">X</a></button></td>
+            <td><button class="read-yet-yes"><a href="#">R</a></button></td>
+            <td><button class="read-yet-no><a href="#">N/R</a></button></td> 
         `;
         list.appendChild(row);
 
@@ -51,6 +53,14 @@ class UI {
         const author = document.querySelector(".author").value = "";
         const pages = document.querySelector(".pages").value = "";
         const read = document.querySelector(".read").value = "";
+    }
+
+    static bookRead (el) {
+        if(el.classList.contains("read-yet-yes")) {
+            el.closest(".read-yet").innerHTML = "yassssss"
+        }
+
+
     }
 };
 
@@ -81,7 +91,11 @@ document.querySelector(".book-form").addEventListener("submit", (e) => {
 document.getElementById("book-list").addEventListener("click", (e) => {
 
     UI.deleteBook(e.target)
+});
+
+// Book Read or not?
+
+document.getElementById("book-list").addEventListener("click", (e) => {
+
+    UI.bookRead(e.target)
 })
-
-
-
