@@ -33,21 +33,55 @@ class UI {
             <td>${book.title}</td>
             <td>${book.author}</td>
             <td>${book.pages}</td>
-            <td>${book.title}</td>
-            <td><button><a href="#">X</a></button></td>
-            
-            
+            <td>${book.read}</td>
+            <td><button class="delete"><a href="#">X</a></button></td> 
         `;
         list.appendChild(row);
 
     }
-}
+
+    static deleteBook(el) {
+        if(el.classList.contains("delete")) {
+            el.parentElement.parentElement.remove();
+        }
+    }
+
+    static clearFields() {
+        const title = document.querySelector(".title").value = "";
+        const author = document.querySelector(".author").value = "";
+        const pages = document.querySelector(".pages").value = "";
+        const read = document.querySelector(".read").value = "";
+    }
+};
 
 // Display Books (Event)
 
 document.addEventListener("DOMContentLoaded", UI.displayBooks);
 
+// Add a Book
 
+document.querySelector(".book-form").addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    const title = document.querySelector(".title").value;
+    const author = document.querySelector(".author").value;
+    const pages = document.querySelector(".pages").value;
+    const read = document.querySelector(".read").value;
+
+    const book = new Book (title, author, pages, read);
+
+    UI.addBookToList(book);
+
+    UI.clearFields()
+});
+
+// Delete a Book
+
+document.getElementById("book-list").addEventListener("click", (e) => {
+
+    UI.deleteBook(e.target)
+})
 
 
 
