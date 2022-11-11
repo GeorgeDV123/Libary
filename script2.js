@@ -79,6 +79,13 @@ document.querySelector(".book-form").addEventListener("submit", (e) => {
     const pages = document.querySelector(".pages").value;
     const read = document.querySelector(".read").value;
 
+    title.addEventListener("input", (event) => {
+        if (!title.target.validity.valid) {
+            title.setCustomValidity("I need a title pls");
+            title.reportValidity();
+        }
+    })
+
     const book = new Book (title, author, pages, read);
 
     UI.addBookToList(book);
